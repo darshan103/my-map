@@ -7,10 +7,11 @@ import OSM from 'ol/source/OSM';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 import { fromLonLat } from 'ol/proj';
-import { Style, Circle, Fill, Stroke } from 'ol/style';
+import { Style, Icon } from 'ol/style';
 import { Feature } from 'ol';
 import { Point } from 'ol/geom';
-// import pinpointImage from '/src/assests/pinpoint.png';
+
+import pinpointImage from '../assests/pinpoint.png'; // Import the image
 
 function MapComponent() {
   const mapRef = useRef(null);
@@ -34,10 +35,9 @@ function MapComponent() {
     const vectorLayer = new VectorLayer({
       source: vectorSource,
       style: new Style({
-        image: new Circle({
-          radius: 6,
-          fill: new Fill({ color: 'red' }),
-          stroke: new Stroke({ color: 'white', width: 2 }),
+        image: new Icon({
+          src: pinpointImage, // Use the pinpoint image
+          scale: 0.01, // Adjust scale as needed
         }),
       }),
     });
@@ -63,7 +63,11 @@ function MapComponent() {
   }, []);
 
   return (
-    <div ref={mapRef} style={{ width: '100%', height: '100vh' }}>
+    <div
+      ref={mapRef}
+      style={{ width: '100%', height: '100vh' }}
+      className="map-container"
+    >
       {/* This div is where the map will be rendered */}
     </div>
   );
