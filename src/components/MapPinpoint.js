@@ -13,7 +13,7 @@ import { Point } from 'ol/geom';
 
 import pinpointImage from '../assests/pinpoint.png'; // Import the image
 
-function MapComponent() {
+function MapPinpoint() {
   const mapRef = useRef(null);
   const vectorLayerRef = useRef(null);
 
@@ -73,4 +73,4 @@ function MapComponent() {
   );
 }
 
-export default MapComponent;
+export default MapPinpoint;
